@@ -1,0 +1,7 @@
+#build result
+product/product/[Dd]ebug/
+product/product/[Bb]in/
+product/product/[Oo]bj/
+product/product.Tests/[Bb]in/
+product/product.Tests/[Oo]bj/
+ product/product.Tests/[Dd]ebug/

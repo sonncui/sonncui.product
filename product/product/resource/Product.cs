@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using FluentNHibernate.Mapping;
 
 namespace product.resource
 {
     public class Product
     {
-        public long id { get; set; }
-        public string name { get; set; }
-        public decimal price { get; set; }
+        public virtual long Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual decimal Price { get; set; }
+    }
 
-        public Product(long id, string name, decimal price)
+    public class ProductMap : ClassMap<Product>
+    {
+        public ProductMap()
         {
-            this.id = id;
-            this.name = name;
-            this.price = price;
+            Table("product");
+            Id(p => p.Id).Column("id");
+            Map(p => p.Name).Column("name");
+            Map(p => p.Price).Column("price");
         }
     }
 }

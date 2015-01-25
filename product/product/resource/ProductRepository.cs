@@ -1,27 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using NHibernate;
 
 namespace product.resource
 {
     public class ProductRepository
     {
-        List<Product> products = new List<Product>()
-                {
-                    new Product(1, "Narcissus", 18),
-                    new Product(2, "little Bamboo", 17),
-                    new Product(3, "Orchid", 56) 
-                };
+        private static IList<Product> products;
 
-        public List<Product> GetAll()
+        public IList<Product> GetAll()
         {
+            using (ISession session = NhibernateHelper.OpenSession())
+            {
+                products = session.QueryOver<Product>().List();
+                session.Close();
+            }
             return products;
         }
 
         public Product GetById(long id)
         {
-            return products.FirstOrDefault(p => p.id == id);
+            return products.FirstOrDefault(p => p.Id == id);
         }
     }
 }

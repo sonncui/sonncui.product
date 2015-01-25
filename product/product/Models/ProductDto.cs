@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace product.Models
+﻿namespace product.Models
 {
     public class ProductDto
     {

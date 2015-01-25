@@ -12,9 +12,9 @@ namespace product.Models
         {
             return new ProductDto
             {
-                id = product.id,
-                name = product.name,
-                price = product.price
+                id = product.Id,
+                name = product.Name,
+                price = product.Price
             };
         }
     }
